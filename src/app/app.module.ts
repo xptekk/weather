@@ -5,6 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
+import { WEATHER_API_URL, WEATHER_API_KEY } from './app.const';
+import { environment } from '../environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +18,10 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: WEATHER_API_URL, useValue: environment.weather_api_url },
+    { provide: WEATHER_API_KEY, useValue: environment.weather_api_key },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
