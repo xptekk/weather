@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "weatherdemo-60369": {
+      "hosting": {
+        "weather": [
+          "weatherdemo-60369"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "weatherdemo-60369"
+  }
+}

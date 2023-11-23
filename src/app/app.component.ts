@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SwUpdate } from '@angular/service-worker';
 import { filter, map, switchMap } from 'rxjs';
@@ -15,7 +14,6 @@ export class AppComponent implements OnInit {
   constructor(
     private swUpdate: SwUpdate,
     private snackbar: MatSnackBar,
-    private location: Location,
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +31,7 @@ export class AppComponent implements OnInit {
           ).afterDismissed()),
         filter(result => result.dismissedByAction),
         map(() => this.swUpdate.activateUpdate()
-          .then(() => this.location.go('#')))
+          .then(() => location.reload()))
       )
       .subscribe();
   }
